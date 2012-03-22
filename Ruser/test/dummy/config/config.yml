@@ -1,0 +1,34 @@
+defaults: &defaults
+  app_name: "Ruby China Group"
+  foot_html: "&copy; Ruby China Group."
+  domain: "127.0.0.1:3000"    
+  admin_emails: 
+    - "admin@admin.com"
+  google_analytics_key: ""
+  upload_url: "http://ruby-china-files-dev.b0.upaiyun.com"
+  upyun_username: "test"
+  upyun_password: "123123"
+  upyun_bucket: "ruby-china-files-dev"
+  google_group_email: "shanghaionrails@googlegroups.com"
+  email_sender: 'no-reply@ruby-china.org'
+  aws_access_key_id: ''
+  aws_secret_access_key: ''
+  twitter_token: "uJ9fBa53SmqrHBqs1qq5cg"
+  twitter_secret: "b9e9hbsa9sYYCqmW0kTyfALshclmkQX4kzTm8BBBTw"
+  github_token: "207bd3415f6f42bcf8da"
+  github_secret: "8d51636e1325cd4a0af78efe567a35f29d42096d"
+  douban_token: "04fab3198986e6350ef0194c9c94b29f"
+  douban_secret: "5c08eac53cfa1890"
+  google_js_api_key: "ABQIAAAAC-ble-vmy_g7-Qvem5P86xTX2XchcwgyHzp4Xo0DHRAzt2aLjhQnflwIyCJBOWYCE_rFuUkE0qEmhw"
+  external_feed_url: "http://ruby-taiwan.org/topics/feed"
+  external_feed_name: "Ruby Taiwan Group"
+  twitter_id: "ruby_china"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

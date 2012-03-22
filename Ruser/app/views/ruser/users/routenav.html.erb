@@ -1,0 +1,36 @@
+
+<h2>Home Page of User</h2>
+
+<h2>All route of Users</h2>
+
+<ul>
+  
+  <li> update_private_token_account GET  &nbsp&nbsp  /account/update_private_token(.:format) &nbsp&nbsp ruser/account#update_private_token</li>
+     <li>        new_user_session GET   &nbsp&nbsp  /account/sign_in(.:format) &nbsp&nbsp              ruser/sessions#new</li>
+   <li>              user_session POST   &nbsp&nbsp /account/sign_in(.:format)&nbsp&nbsp               ruser/sessions#create</li>
+   <li>      destroy_user_session GET   &nbsp&nbsp /account/sign_out(.:format)  &nbsp&nbsp            ruser/sessions#destroy</li>
+   <li>    user_omniauth_callback       &nbsp&nbsp /account/auth/:action/callback(.:format)&nbsp&nbsp users/omniauth_callbacks#(?-mix:(?!))</li>
+   <li>             user_password POST  &nbsp&nbsp /account/password(.:format) &nbsp&nbsp             ruser/passwords#create</li>
+   <li>         new_user_password GET   &nbsp&nbsp /account/password/new(.:format)&nbsp&nbsp          ruser/passwords#new</li>
+    <li>       edit_user_password GET   &nbsp&nbsp /account/password/edit(.:format) &nbsp&nbsp        ruser/passwords#edit</li>
+                             PUT   &nbsp&nbsp /account/password(.:format) &nbsp&nbsp             ruser/passwords#update</li>
+   <li>  cancel_user_registration GET   &nbsp&nbsp /account/cancel(.:format)  &nbsp&nbsp              account#cancel</li>
+    <li>        user_registration POST  &nbsp&nbsp /account(.:format)     &nbsp&nbsp                  account#create</li>
+    <li>  <a href="ruser/account/sign_up"> new_user_registration GET</a>   &nbsp&nbsp /account/sign_up(.:format)&nbsp&nbsp               account#new</li>
+     <li>  edit_user_registration GET   &nbsp&nbsp /account/edit(.:format)   &nbsp&nbsp               account#edit</li>
+     <li>                         PUT   &nbsp&nbsp /account(.:format)   &nbsp&nbsp                    account#update</li>
+      <li>                        DELETE &nbsp&nbsp/account(.:format)   &nbsp&nbsp                    account#destroy</li>
+							 
+       <li>                              &nbsp&nbsp/account/auth/:provider/unbind(.:format) &nbsp&nbspruser/users#auth_unbind</li>
+       <li>        location_users        &nbsp&nbsp/users/location/:id(.:format)    &nbsp&nbsp        ruser/users#location</li>
+        <li>          topics_user GET    &nbsp&nbsp/users/:id/topics(.:format)    &nbsp&nbsp          ruser/users#topics</li>
+          <li>         likes_user GET   &nbsp&nbsp /users/:id/likes(.:format)    &nbsp&nbsp           ruser/users#likes</li>
+          <li>              users GET    &nbsp&nbsp/users(.:format)  &nbsp&nbsp                       ruser/users#index</li>
+           <li>                   POST   &nbsp&nbsp/users(.:format)  &nbsp&nbsp                       ruser/users#create</li>
+           <li>        <a href="users/new">new_user GET</a>    &nbsp&nbsp /users/new(.:format)  &nbsp&nbsp                   ruser/users#new</li>
+            <li>        edit_user GET    &nbsp&nbsp/users/:id/edit(.:format)  &nbsp&nbsp              ruser/users#edit</li>
+             <li>            user GET    &nbsp&nbsp/users/:id(.:format) &nbsp&nbsp                    ruser/users#show</li>
+             <li>                 PUT    &nbsp&nbsp/users/:id(.:format) &nbsp&nbsp                    ruser/users#update</li>
+              <li>                DELETE &nbsp&nbsp/users/:id(.:format) &nbsp&nbsp                    ruser/users#destroy</li>
+</p>
+

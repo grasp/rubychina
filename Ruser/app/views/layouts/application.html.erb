@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <%= csrf_meta_tag %>
+
+</head>
+
+
+  <div class="container">
+    <%= render_breadcrumb %>
+
+    <%= notice_message %>
+    <div id="main" class="container-fluid">
+      <%= yield %>
+    </div>
+  </div>
+
+  <%#= render :partial => "ruser/common/google_analytics"%>
+  
+</body>
+</html>

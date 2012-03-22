@@ -1,0 +1,68 @@
+source "http://ruby.taobao.org"
+
+# Declare your gem's dependencies in ruser.gemspec.
+# Bundler will treat runtime dependencies like base dependencies, and
+# development dependencies will be added by default to the :development group.
+gemspec
+
+# jquery-rails is used by the dummy application
+gem "jquery-rails"
+
+# Declare any dependencies that are still in development here instead of in
+# your gemspec. These might include edge Rails or gems from your path or
+# Git. Remember to move these dependencies to your gemspec before releasing
+# your gem to rubygems.org.
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
+# 
+#this is for init_breadcrume....
+gem 'bootstrap-rails', :require => 'bootstrap-rails', :git => 'http://github.com/xdite/bootstrap-rails.git'
+
+# YAML 配置信息
+gem "settingslogic", "~> 2.0.6"
+
+gem "cells", "3.7.1"
+
+gem 'mail_view', :git => 'http://github.com/37signals/mail_view.git'
+
+# 上传组件
+gem 'carrierwave', '0.5.7'
+gem 'carrierwave-mongoid', '0.1.2', :require => 'carrierwave/mongoid'
+gem 'carrierwave-upyun', '0.1.3'
+gem 'mini_magick','3.3'
+
+# Mongoid 辅助插件
+gem "mongoid", "2.4.3"
+gem "bson_ext", "1.5.2"
+gem 'mongo-rails-instrumentation','0.2.4'
+gem 'mongoid_auto_increment_id', "0.4.0"
+gem 'mongoid_rails_migrations', '~> 0.0.14'
+
+# Redis 命名空间
+gem 'redis-namespace','~> 1.0.2'
+
+# 将一些数据存放入 Redis
+gem "redis-objects", "0.5.2"
+
+# 队列
+gem "resque", "~> 1.20.0", :require => "resque/server"
+gem "resque_mailer", '2.0.2'
+
+# Github API
+gem 'ruby-github'
+
+# 用户系统
+gem 'devise', '~>2.0.4'
+
+
+
+# 三方平台 OAuth 验证登陆
+gem "omniauth", "~> 1.0.1"
+gem 'omniauth-openid', "~> 1.0.1"
+gem "omniauth-github", "~> 1.0.0"
+gem "omniauth-twitter", "~> 0.0.7"
+#gem "omniauth-douban", :git => "git://github.com/ballantyne/omniauth-douban.git"
+gem "omniauth-douban", :git => "http://github.com/ballantyne/omniauth-douban.git"
+
+gem "watir-webdriver"
