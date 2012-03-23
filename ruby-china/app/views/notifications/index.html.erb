@@ -1,0 +1,26 @@
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "notifications" %>
+<% end %>
+<%= content_for :scripts do %>
+  <%= javascript_include_tag "notifications" %>
+<% end %>
+
+<div id="notifications" class="box">
+  <div class="tools">
+    <%= link_to t("common.mark_all_as_read"), mark_all_as_read_notifications_path, :class => 'btn', :method => :put, :remote => true, :disable_with => '标记所有为已读...' %>
+    <h1 class="pull-right">提醒</h1>
+  </div>
+  <table>
+    <tbody>
+      <% @notifications.each do |notification| -%>
+        <tr id="<%= notification.anchor %>">
+          <%= render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification} %>
+          <td class="last">
+            <%= link_to t("common.delete"), notification_path(notification), :method => :delete, :remote => true, :class => 'label delete' %>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+  <%= will_paginate @notifications %>
+</div>

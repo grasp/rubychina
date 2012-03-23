@@ -1,0 +1,182 @@
+body {
+  
+}
+.topbar h3 a, .topbar .brand{
+  display:none;
+}
+.topbar input { display:none; }
+.container { width:auto; margin:0 10px; }
+.container-fluid { width:auto; min-width:0; }
+.sidebar { display:none; }
+.container-fluid > .content {
+  margin:0;
+}
+.topbar div > ul, .nav {
+  margin:0;
+  li {
+    a { padding: 10px 6px 11px; }
+  }
+}
+.userinfo {
+  .role {
+    float: right;
+    margin-right: 10px;
+  }
+  ul li {
+    span {      
+      width: auto;
+      text-indent: 5px;
+    }
+  }
+  .with_nbsp {
+    text-indent: 3px;
+    span {
+      display:none;
+    }
+  } 
+}
+table.node_topics .replies {
+  width: 40px;
+}
+.breadcrumb { 
+  padding: 7px;
+  margin-right:95px;
+  .first { display:none; }
+}
+.feed_link {
+  margin-top:-49px;
+  margin-right:0;
+  a {color:#B70000;}
+}
+#reply.form {
+  textarea { width: 98%; height: 80px; }
+  .submit_buttons { 
+    position:static;
+    float:none; 
+    .help-inline { display:none; }
+  }
+  .helpblock { display:none; }
+  #preview  { width: 98%; padding:0; }
+}
+#new_topic {
+  #preview  { width: 98%; padding:0; }
+}
+textarea.long {  width: 98%; height: 80px; }
+.help-block { display:none; }
+#reply .editor_toolbar { 
+  width:100%; 
+  .pull-right { display:none; }
+}
+form {
+  margin-bottom: 0px;
+  input[type="text"] {
+    width: 80%;
+  }  
+  fieldset {
+    margin-bottom: 18px;
+    padding-top: 18px;
+    legend {
+      display: block;
+      padding-left: 0px;
+      font-size:16px;
+      line-height: 1;
+      color: #404040;
+    }
+  }
+  label {
+    padding-top: 6px;
+    font-size: 13px;
+    line-height: 18px;
+    float:none;
+    width:auto;
+    display:block;
+    text-align:left;
+    color: #404040;
+  }
+  .input {
+    margin-left: 0px;
+  }
+  .clearfix { margin-bottom:8px; }
+  .actions { 
+    padding:0; padding-top:10px; background:#FFF; margin-bottom:0;
+  }	
+  #user_github {
+    width: 130px;
+  }
+}
+.input-xxlarge, input.xxlarge, textarea.xxlarge, select.xxlarge {
+  width:98%; 
+}
+#sections li label {
+  display:block;
+  text-align:left;
+  float:none;
+}
+
+#notifications {
+  blockquote {
+    font-size:12px;
+    border:0;
+    padding:0;
+  }
+  td.last { display:none;}
+}
+.topics .topic .infos { padding-right:40px; }
+.topics .topic .replies { display:inline; width:auto; margin-right:10px; }
+.topics .topic .replies a.count, .topics .topic .replies a.count:visited {
+  margin:0; padding:0px 5px; font-size:10px; font-weight:normal;
+}
+#main .topics .topic h1 { font-size:16px; }
+.topics {
+  .body {
+    img  { max-width:98%; }
+  }
+  .topic {
+    .avatar {
+      width:33px;
+      img { max-width:32px; max-height:32px; }
+    }
+    .right_info { padding-left:48px; }
+  }
+  .topic_line {
+    .time { display:none; }
+  }
+}
+#replies .reply .body img { max-width:98%; }
+.secondary-nav .notifications a .count { padding:4px; }
+.new_topic {
+  .input {
+    .span3 { display:block; float:none; margin-bottom:8px; }
+  }
+  .chzn-container { display:block;  }
+  #topic_title { display:block; width:98%; }
+}
+
+#notifications {
+  table {
+    tr {
+      td { padding:10px 0; word-break:break-all;}
+    }
+  }
+  .highlight {
+    .pre {
+      width:80%;
+    }
+  }
+  .body {
+    img { display:none;}
+  }
+}
+
+.pagination {
+  li { display:none; }
+  li.active,
+  li.prev,
+  li.next { display:inline; }
+  li.active { border:none; 
+    a {
+      background:#F0F0F0;
+      color:#666;
+    }
+  }
+}

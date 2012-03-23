@@ -1,0 +1,146 @@
+<div class="content">
+  <div class="box">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :enctype =>  "multipart/form-data" }) do |f| %>
+      <fieldset>
+        <legend><%= t("users.personal_information")%></legend>
+          <% if params[:by].blank? %>
+              <%= render "shared/error_messages", :target => resource %> 
+          <% end %>
+          <div class="clearfix">
+            <%= f.label :name %>
+            <div class="input">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="clearfix">
+            <%= f.label :avatar %>
+            <div class="input">
+              <%= f.file_field :avatar %>
+            </div>
+          </div>
+          <div class="clearfix">
+            <%= f.label :email %>
+            <div class="input">
+              <%= f.text_field :email, :class => "span6" %>
+            </div>
+          </div>
+          <div class="clearfix">
+            <%= f.label :location %>
+            <div class="input">
+              <%= f.text_field :location, :class => "span3" %><br />
+              <span class="help-block"><%= t("users.please_use_chinese_city")%></span>
+            </div>
+          </div>
+          <div class="clearfix">
+            <%= f.label :github %>
+            <div class="input">
+              <div class="input-prepend">
+                <span class="add-on">https://github.com/</span>
+                <%= f.text_field :github, :class => "small", :placeholder => "yourname" %>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+              <%= f.label :website %>
+              <div class="input">
+                <%= f.text_field :website, :class => "xxlarge", :placeholder => "http://" %>
+            </div>
+          </div>
+          <div class="clearfix">
+              <%= f.label :tagline %>
+              <div class="input">
+                <%= f.text_field :tagline, :class => "xxlarge" %>
+            </div>
+          </div>
+          <div class="clearfix">
+              <%= f.label :bio %>
+              <div class="input">
+                <%= f.text_area :bio, :class => "xxlarge", :rows => "6" %>
+            </div>
+          </div>
+          <div class="actions">
+              <%= f.submit "更新资料", :class => "btn primary", :disable_with => t("common.saving") %>
+          </div>
+      </fieldset>
+    <% end %>
+  </div>
+  <div class="box">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name,:by => :pwd), :html => { :method => :put }) do |f| %>
+      <fieldset>
+          <legend><%= t("users.edit_password")%></legend>
+          <% if params[:by] == "pwd" %>
+            <%= render "shared/error_messages", :target => resource %>
+          <% end %>
+          <input type="hidden" name="user[:by]" value="pwd" />
+          <div class="clearfix">
+          <%= f.label :current_password %>
+          <div class="input">
+            <%= f.password_field :current_password %>
+          </div>
+        </div>
+        <div class="clearfix">
+          <%= f.label :password %>
+          <div class="input">
+            <%= f.password_field :password %>
+          </div>
+        </div>
+        <div class="clearfix">
+          <%= f.label :password_confirmation %>
+          <div class="input">
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>        
+          <div class="actions">
+              <%= f.submit "修改密码", :class => "btn success", :disable_with => t("common.saving") %>
+          </div>
+        </fieldset>
+      <% end %>
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="box" style="text-align:center;">
+     <%= user_avatar_tag(@user, :big, :link => false) %> <br /><%= t("users.edit_on_gravatar") %> <a href="http://www.gravatar.com">gravatar.com</a>
+  </div>
+  <div class="box">
+    <h2><%= t("users.bind_another_account")%></h2>
+    <ul>
+      <% ["github"].each do |provider| %>
+      <li>
+        <% if @user.bind? provider %>
+          <%= link_to( provider.titleize, "/account/auth/#{provider}/unbind", :rel => "twitsy", :title => "点击解除绑定" )%>
+          <span class="label success">已绑定</span>
+        <% else %>
+          <%= link_to(provider.titleize, "/account/auth/#{provider}",:rel => "twitsy", :title => "点击解除绑定" )%>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>密钥</h2>
+    <div class="content">
+      <div><textarea id="private_token" style="width:190px;height:20px;cursor:default;" readonly="readonly"><%= @user.private_token %></textarea></div>
+      <div class="buttons">
+        <a href="#" class="btn" id="update_private_token">更换一个</a> <span class="help-inline">用于三方应用验证</span>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <h2><%= t("users.delete_my_account")%></h2>
+    <p><%= t("users.dont_like_it")%> <%= link_to(t("users.delete_this_account"), registration_path(resource_name), :confirm => "删除后无法恢复，你确定吗?", :class => "btn danger", :method => :delete )%></p>
+  </div>
+</div>
+
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#update_private_token").click(function(){
+        $.get("<%= update_private_token_account_path %>",function(re){
+          $("#private_token").val(re);
+        });
+        return false;
+      })
+    });
+  </script>
+<% end %>

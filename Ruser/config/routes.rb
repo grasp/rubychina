@@ -1,11 +1,10 @@
 Ruser::Engine.routes.draw do
     root :to => "users#routenav"
- #  match "account/sign_up" => "account#new", :as => :new_user_registration 
-   #   match "account/cancel" => "account#cancel", :as => :cancel_user_registration 
- # devise_for :users, :path => "account" ,:controllers => {    
+
       devise_for :users, :path => "account", :class_name=>'Ruser::User',:controllers => {       
        module: :devise,
        :registrations => "ruser/account",
+       :sessions=>"ruser/rsessions",
       :omniauth_callbacks => "ruser/user/omniauth_callbacks",
       
     } do
@@ -17,11 +16,13 @@ Ruser::Engine.routes.draw do
 
   match "users/location/:id", :to => "users#location", :as => :location_users
   
-  resources :users do
-    member do
-      get :topics
-      get :likes
-    end
-  end
+      resources :users 
+       
+#  resources :users do
+ #   member do
+ #     get :topics
+ #     get :likes
+ #   end
+  #end
   
 end

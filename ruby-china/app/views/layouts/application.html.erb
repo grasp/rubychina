@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <%= stylesheet_link_tag "front" %>
+  <%= yield :styles %>
+  <% if mobile? %>
+    <%= stylesheet_link_tag "mobile" %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content='True' name='HandheldFriendly' />
+    <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+  <% end %>
+  <meta name="keywords" content="<%= @meta_keywords %>" />
+  <meta name="description" content="<%= @meta_description %>" />
+  <meta charset='utf-8'>
+  <link rel="shortcut icon" href="<%= asset_path("big_logo.png") %>" /> 
+  <%= csrf_meta_tag %>
+  <%= auto_discovery_link_tag(:rss,feed_topics_url,:title => '订阅最新贴') %>
+  <%= yield :node_feed_link %>
+</head>
+<%= render_body_tag %>
+  <div class="topbar" data-dropdown="dropdown">
+    <div class="topbar-inner">
+      <div class="container">
+        <h3>
+          <a href="/"><%= Setting.app_name %></a>
+        </h3>
+         <%= render_list :class => "nav" do |li|
+           li << link_to(t("menu.topics"), topics_path)
+           li << link_to(t("menu.wiki"), pages_path )
+           li << link_to(t("menu.sites"), sites_path )
+           li << link_to(t("menu.users"), users_path)
+         end %>
+        <%= render "common/search_form" %>
+        <%= render "common/user_nav" %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <%= render_breadcrumb %>
+    <%= render "common/feeds" %>
+
+    <%= notice_message %>
+    <div id="main" class="container-fluid">
+      <%= yield %>
+    </div>
+  </div>
+  <% if not mobile? %>
+  <footer class="footer">
+    <div class="container">
+      <%= raw SiteConfig.footer_html %>
+    </div>
+  </footer>
+  <% end %>
+  
+  <%= javascript_include_tag "app" %>
+  <% if mobile? %>
+    <script type="text/javascript">app_mobile = true;</script>
+  <% end %>
+  <%= yield :scripts %>
+  <%= render :partial => "common/google_analytics"%>
+  
+</body>
+</html>

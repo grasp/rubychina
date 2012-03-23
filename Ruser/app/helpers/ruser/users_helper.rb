@@ -1,7 +1,8 @@
 # coding: utf-8
 require "digest/md5"
-module Ruser
-module UsersHelper
+module Ruser::UsersHelper
+#  include Ruser::Engine.routes.url_helpers
+  
   # 生成用户 login 的链接，user 参数可接受 user 对象或者 字符串的 login
   def user_name_tag(user,options = {})
     return "匿名" if user.blank?
@@ -15,8 +16,8 @@ module UsersHelper
     end
 
     name ||= login
-
-    link_to(login, user_path(login), 'data-name' => name)
+raw %(<a href="ruser/user/#{user.id}" #{user_popover_info(user)} class="user_avatar">hahaha</a>)
+ 
   end
 
   def user_avatar_width_for_size(size)
@@ -48,7 +49,9 @@ module UsersHelper
     end
 
     if link
-      raw %(<a href="#{user_path(user.login)}" #{user_popover_info(user)} class="user_avatar">#{img}</a>)
+
+     raw %(<a href="ruser/user/#{user.id}" #{user_popover_info(user)} class="user_avatar">#{img}</a>)
+
     else
       raw img
     end
@@ -93,4 +96,4 @@ module UsersHelper
     raw %(rel="userpopover" title="#{h(title)}" data-content="#{h(tagline)}")
   end
 end
-end
+
