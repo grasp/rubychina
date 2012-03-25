@@ -6,18 +6,18 @@
 <ul>
   
   <li> update_private_token_account GET  &nbsp&nbsp  /account/update_private_token(.:format) &nbsp&nbsp ruser/account#update_private_token</li>
-  <li>     <a href="ruser/account/sign_in">new_user_session GET </a>     &nbsp&nbsp  /account/sign_in(.:format) &nbsp&nbsp              ruser/sessions#new</li>
+  <li>     <a href="/ruser/account/sign_in">new_user_session GET </a>     &nbsp&nbsp  /account/sign_in(.:format) &nbsp&nbsp              ruser/sessions#new</li>
    <li>              user_session POST   &nbsp&nbsp /account/sign_in(.:format)&nbsp&nbsp               ruser/sessions#create</li>
-   <li>      destroy_user_session GET   &nbsp&nbsp /account/sign_out(.:format)  &nbsp&nbsp            ruser/sessions#destroy</li>
+   <li>    <a href="/ruser/account/sign_out"> destroy_user_session GET</a>    &nbsp&nbsp /account/sign_out(.:format)  &nbsp&nbsp            ruser/sessions#destroy</li>
    <li>    user_omniauth_callback       &nbsp&nbsp /account/auth/:action/callback(.:format)&nbsp&nbsp users/omniauth_callbacks#(?-mix:(?!))</li>
    <li>        user_password POST     &nbsp&nbsp /account/password(.:format) &nbsp&nbsp             ruser/passwords#create</li>
-   <li>        <a href="ruser/account/password/new">new_user_password GET </a>   &nbsp&nbsp /account/password/new(.:format)&nbsp&nbsp          ruser/passwords#new</li>
-   <li>      <a href="ruser/account/password/edit"> edit_user_password GET</a>   &nbsp&nbsp /account/password/edit(.:format) &nbsp&nbsp        ruser/passwords#edit</li>
+   <li>        <a href="/ruser/account/password/new">new_user_password GET </a>   &nbsp&nbsp /account/password/new(.:format)&nbsp&nbsp          ruser/passwords#new</li>
+   <li>      <a href="/ruser/account/password/edit"> edit_user_password GET</a>   &nbsp&nbsp /account/password/edit(.:format) &nbsp&nbsp        ruser/passwords#edit</li>
                              PUT   &nbsp&nbsp /account/password(.:format) &nbsp&nbsp             ruser/passwords#update</li>
-<li>  <a href="ruser/account/cancel">  cancel_user_registration GET</a>   &nbsp&nbsp /account/cancel(.:format)  &nbsp&nbsp              account#cancel</li>
+<li>  <a href="/ruser/account/cancel">  cancel_user_registration GET</a>   &nbsp&nbsp /account/cancel(.:format)  &nbsp&nbsp              account#cancel</li>
     <li>        user_registration POST  &nbsp&nbsp /account(.:format)     &nbsp&nbsp                  account#create</li>
-    <li>  <a href="ruser/account/sign_up"> new_user_registration GET</a>   &nbsp&nbsp /account/sign_up(.:format)&nbsp&nbsp               account#new</li>
-    <li>  <a href="ruser/account/edit">edit_user_registration GET </a>  &nbsp&nbsp /account/edit(.:format)   &nbsp&nbsp               account#edit</li>
+    <li>  <a href="/ruser/account/sign_up"> new_user_registration GET</a>   &nbsp&nbsp /account/sign_up(.:format)&nbsp&nbsp               account#new</li>
+    <li>  <a href="/ruser/account/edit">edit_user_registration GET </a>  &nbsp&nbsp /account/edit(.:format)   &nbsp&nbsp               account#edit</li>
      <li>                         PUT   &nbsp&nbsp /account(.:format)   &nbsp&nbsp                    account#update</li>
       <li>                        DELETE &nbsp&nbsp/account(.:format)   &nbsp&nbsp                    account#destroy</li>
 							 
@@ -25,7 +25,7 @@
        <li>        location_users        &nbsp&nbsp/users/location/:id(.:format)    &nbsp&nbsp        ruser/users#location</li>
         <li>          topics_user GET    &nbsp&nbsp/users/:id/topics(.:format)    &nbsp&nbsp          ruser/users#topics</li>
           <li>         likes_user GET   &nbsp&nbsp /users/:id/likes(.:format)    &nbsp&nbsp           ruser/users#likes</li>
-          <li>        <a href="ruser/users"> users GET </a>        &nbsp&nbsp/users(.:format)  &nbsp&nbsp                       ruser/users#index</li>
+          <li>        <a href="/ruser/users"> users GET </a>        &nbsp&nbsp/users(.:format)  &nbsp&nbsp                       ruser/users#index</li>
            <li>                   POST   &nbsp&nbsp/users(.:format)  &nbsp&nbsp                       ruser/users#create</li>
            <li>        <a href="users/new">new_user GET</a>    &nbsp&nbsp /users/new(.:format)  &nbsp&nbsp                   ruser/users#new</li>
             <li>        edit_user GET    &nbsp&nbsp/users/:id/edit(.:format)  &nbsp&nbsp              ruser/users#edit</li>

@@ -18,7 +18,8 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+   #  config.autoload_paths += %W(#{config.root.parent.parent})
+ config.autoload_paths +=["/home/hunter/vob/rubychina/Ruser/app/cells"]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -34,7 +35,7 @@ module Dummy
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
+ config.i18n.default_locale = "zh-CN"
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -59,6 +60,8 @@ module Dummy
     config.assets.version = '1.0'
     
       config.action_mailer.default_url_options = { :host => 'localhost:3000' }#for devise
+
+   # config.load_paths << "#{RAILS_ROOT}/app/widgets"
   end
 end
 

@@ -6,7 +6,7 @@ module Ruser::UsersHelper
   # 生成用户 login 的链接，user 参数可接受 user 对象或者 字符串的 login
   def user_name_tag(user,options = {})
     return "匿名" if user.blank?
-
+#what is this for, this means, user is a string?
     if (user.class == "".class)
       login = user
       name = login
@@ -16,7 +16,7 @@ module Ruser::UsersHelper
     end
 
     name ||= login
-raw %(<a href="ruser/user/#{user.id}" #{user_popover_info(user)} class="user_avatar">hahaha</a>)
+raw %(<a href="/ruser/users/#{user.login}" #{user_popover_info(user)} class="user_avatar">132#{name}</a>)
  
   end
 
@@ -50,7 +50,7 @@ raw %(<a href="ruser/user/#{user.id}" #{user_popover_info(user)} class="user_ava
 
     if link
 
-     raw %(<a href="ruser/user/#{user.id}" #{user_popover_info(user)} class="user_avatar">#{img}</a>)
+     raw %(<a href="/ruser/users/#{user.login}" #{user_popover_info(user)} class="user_avatar">#{img}</a>)
 
     else
       raw img

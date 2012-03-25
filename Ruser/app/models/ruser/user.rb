@@ -6,26 +6,26 @@ class Ruser::User
   include Mongoid::Timestamps
   include Mongoid::BaseModel
   include Redis::Objects
-  extend OmniauthCallbacks
-  cache
-
+  extend OmniauthCallbacks #insert Ominiauth helper
+  cache #is this mongoid feature?
+   #this is come from devise gem, actully is helper declare
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  field :login
-  field :name
+  field :login #this is real unique login name
+  field :name #this is nick name
   field :email
-  field :location
-  field :location_id, :type => Integer
-  field :bio
-  field :website
-  field :github
+  field :location #city
+  field :location_id, :type => Integer #city_id?
+  field :bio #what is this for
+  field :website #user personal site
+  field :github #github account?
   # 是否信任用户
-  field :verified, :type => Boolean, :default => true
+  field :verified, :type => Boolean, :default => true #email sented
   field :state, :type => Integer, :default => 1
   field :guest, :type => Boolean, :default => false
-  field :tagline
-  field :topics_count, :type => Integer, :default => 0
+  field :tagline  #
+  field :topics_count, :type => Integer, :default => 0 #this can be move to rforum
   field :replies_count, :type => Integer, :default => 0
   field :likes_count, :type => Integer, :default => 0
   # 用户密钥，用于客户端验证
@@ -48,7 +48,7 @@ class Ruser::User
  # has_many :likes
 
   def read_notifications(notifications)
-    unread_ids = notifications.find_all{|notification| !notification.read?}.map(&:_id)
+    unread_ids = notifications.find_all{|notification| !notification.read?}.map(&:_id) #need
     if unread_ids.any?
       Notification::Base.where({
         :user_id => id,
@@ -67,11 +67,11 @@ class Ruser::User
  # has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers
  # has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following
 
-  scope :hot, desc(:replies_count, :topics_count)
+  scope :hot, desc(:replies_count, :topics_count) #
 
   def self.find_for_database_authentication(conditions)
     login = conditions.delete(:login)
-    self.where(:login => /^#{login}$/i).first || self.where(:email => /^#{login}$/i).first
+    self.where(:login => /^#{login}$/i).first || self.where(:email => /^#{login}$/i).first #return user existed
   end
 
   def password_required?
@@ -86,7 +86,7 @@ class Ruser::User
 
   # 是否是管理员
   def admin?
-    Setting.admin_emails.include?(self.email)
+    Ruser::Setting.admin_emails.include?(self.email)
   end
 
   # 是否有 Wiki 维护权限
@@ -231,4 +231,5 @@ class Ruser::User
     random_key = "#{SecureRandom.hex(10)}:#{self.id}"
     self.update_attribute(:private_token, random_key)
   end
+
 end

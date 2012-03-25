@@ -1,6 +1,12 @@
 # coding: utf-8
 module Ruser
 class AccountController < Devise::RegistrationsController
+     before_filter :set_locale
+
+def set_locale
+ # I18n.locale = extract_locale_from_tld || I18n.default_locale
+ I18n.locale = "zh-CN"
+end
   def edit
     @user = current_user
     # 首次生成用户 Token
@@ -15,6 +21,9 @@ class AccountController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource
+   # puts "resource.name=#{resource.name}"
+   #     puts "resource.login=#{resource.login}"
+   #       puts " resource.email=#{ resource.email}"
     resource.login = params[resource_name][:login]
     if resource.save
       if resource.active_for_authentication?

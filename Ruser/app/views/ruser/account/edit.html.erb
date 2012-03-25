@@ -4,7 +4,7 @@
       <fieldset>
         <legend><%= t("users.personal_information")%></legend>
           <% if params[:by].blank? %>
-              <%= render "shared/error_messages", :target => resource %> 
+              <%= render "ruser/shared/error_messages", :target => resource %>
           <% end %>
           <div class="clearfix">
             <%= f.label :name %>
@@ -59,7 +59,8 @@
             </div>
           </div>
           <div class="actions">
-              <%= f.submit "更新资料", :class => "btn primary", :disable_with => t("common.saving") %>
+              <%#= f.submit "更新资料", :class => "btn primary", :disable_with => t("common.saving") %>
+             <%= f.submit "更新资料" %>
           </div>
       </fieldset>
     <% end %>
@@ -69,7 +70,7 @@
       <fieldset>
           <legend><%= t("users.edit_password")%></legend>
           <% if params[:by] == "pwd" %>
-            <%= render "shared/error_messages", :target => resource %>
+            <%= render "ruser/shared/error_messages", :target => resource %>
           <% end %>
           <input type="hidden" name="user[:by]" value="pwd" />
           <div class="clearfix">
@@ -91,7 +92,8 @@
           </div>
         </div>        
           <div class="actions">
-              <%= f.submit "修改密码", :class => "btn success", :disable_with => t("common.saving") %>
+              <%#= f.submit "修改密码", :class => "btn success", :disable_with => t("common.saving") %>
+             <%= f.submit "修改密码", :class => "btn success" %>
           </div>
         </fieldset>
       <% end %>
