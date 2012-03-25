@@ -11,6 +11,7 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 Devise.setup do |config|
   #  config.router_name = :ruser
   #  
+  config.reset_password_within=6
    config.router_name = :ruser
   config.parent_controller = 'ActionController::Base'
   # ==> Mailer Configuration

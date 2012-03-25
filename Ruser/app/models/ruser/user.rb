@@ -30,7 +30,8 @@ class Ruser::User
   field :likes_count, :type => Integer, :default => 0
   # 用户密钥，用于客户端验证
   field :private_token
-
+#upgrade to 2.0 needed
+  field :reset_password_sent_at#,:type => Integer, :default => 6
   mount_uploader :avatar, AvatarUploader
 
   index :login

@@ -3,9 +3,8 @@ class Ruser::Location
   include Mongoid::Document  
   field :name
   field :users_count, :type => Integer, :default => 0
-  has_many :users  
-  scope :hot, desc(:users_count)
-  
+  has_many :users ,:class_name=>"Ruser::User"
+  scope :hot, desc(:users_count)  
   validates_uniqueness_of :name, :case_sensitive => false
   
   index :name
