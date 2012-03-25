@@ -33,4 +33,11 @@
       topics: "帖子" 
       recent_reply_topics: "最近回帖"
       like: "喜欢"
+    username: "用户名"
+    nickname: "昵称"
+    email: "邮箱"
+    location: "位置"
+    password: "密码"
+    password_current: "当前密码"
+    password_confirm: "密码确认"
 

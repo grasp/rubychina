@@ -7,25 +7,25 @@
               <%= render "ruser/shared/error_messages", :target => resource %>
           <% end %>
           <div class="clearfix">
-            <%= f.label :name %>
+            <%= f.label t("users.username") %>
             <div class="input">
               <%= f.text_field :name %>
             </div>
           </div>
           <div class="clearfix">
-            <%= f.label :avatar %>
+            <%= f.label t("users.edit_on_gravatar") %>
             <div class="input">
               <%= f.file_field :avatar %>
             </div>
           </div>
           <div class="clearfix">
-            <%= f.label :email %>
+           <%= f.label t("users.email") %>
             <div class="input">
               <%= f.text_field :email, :class => "span6" %>
             </div>
           </div>
           <div class="clearfix">
-            <%= f.label :location %>
+           <%= f.label t("users.location") %>
             <div class="input">
               <%= f.text_field :location, :class => "span3" %><br />
               <span class="help-block"><%= t("users.please_use_chinese_city")%></span>
@@ -74,19 +74,19 @@
           <% end %>
           <input type="hidden" name="user[:by]" value="pwd" />
           <div class="clearfix">
-          <%= f.label :current_password %>
+          <%= f.label t("users.password_current") %>
           <div class="input">
             <%= f.password_field :current_password %>
           </div>
         </div>
         <div class="clearfix">
-          <%= f.label :password %>
+         <%= f.label t("users.password") %>
           <div class="input">
             <%= f.password_field :password %>
           </div>
         </div>
         <div class="clearfix">
-          <%= f.label :password_confirmation %>
+           <%= f.label t("users.password_confirm") %>
           <div class="input">
             <%= f.password_field :password_confirmation %>
           </div>
